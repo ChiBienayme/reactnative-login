@@ -1,21 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from "react-native";
+import { NativeRouter, Routes, Route } from "react-router-native";
+// Pages
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	return (
+		<SafeAreaView>
+			<NativeRouter>
+				<Routes>
+					<Route exact path="/" element={<Home />} />
+					<Route exact path="/login" element={<Login />} />
+				</Routes>
+			</NativeRouter>
+		</SafeAreaView>
+	);
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
